@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Course Enrollement Form</title>
+    </head>
+    <body>
+
+            <header style="text-align: center;">
+                <legend style="color:rebeccapurple"><h1>Online Learning Platform</h1></legend>
+            </header>
+
+        <form action="/submit" method="POST" autocomplete="off">
+
+        <fieldset>
+
+            <main>
+
+            <section style="text-align: center;" style="text-align:justify;">
+
+            
+            <center>
+            <table cellpadding="10">
+
+            <tr>
+            <td><label>Name :</label></td>
+            <td>
+                <input type="text" id="uid" name="uid" autofocus placeholder="Enter name" required />
+            </td>
+            </tr>
+
+            <tr>
+            <td><label>Email id :</label></td>
+            <td>
+                <input type="email" id="eid" name="eid" autofocus placeholder="Enter Email Address" required />
+            </td>
+            </tr>
+
+            <tr>
+            <td><label>Phone no.:</label></td>
+            <td>
+                <input type="tel" id="ph" name="ph" pattern="[0-9]{10}" autofocus placeholder="Enter phone number" required />
+            </td>
+            </tr>
+
+            <tr>
+            <td><label>Age :</label></td>
+            <td>
+                <input type="number" id="aid" name="aid" min="16" max="26" autofocus placeholder="Enter age" required />
+            </td>
+            </tr>
+
+            <tr>
+            <td><label>Select Course :</label></td>
+            <td>
+                <input type="text" id="sid" name="sid" list="courses" autofocus placeholder="Select Course" required />
+                <datalist id="courses">
+                <option value="HTML">
+                <option value="CSS">
+                <option value="JavaScript">
+                <option value="Python">
+                <option value="Java">
+                </datalist>
+            </td>
+            </tr>
+
+            <tr>
+            <td><label>Skill Level (0-100):</label></td>
+            <td>
+                <input type="range" name="skill" min="0" max="100" required>
+            </td>
+            </tr>
+
+            <tr>
+            <td><label>Skill Meter:</label></td>
+            <td>
+                <meter min="0" max="100" value="50">50%</meter>
+            </td>
+            </tr>
+
+            <tr>
+            <td><label>Enrollment Progress:</label></td>
+            <td>
+                <progress value="70" max="100"></progress>
+            </td>
+            </tr>
+
+            </table>
+            </center>
+            
+
+            <br><br>
+
+            </section>
+
+            </main>
+
+        </fieldset>
+
+        <footer align="center">
+        <input type="submit" value="Enroll">
+        </footer>
+
+        </form>
+
+    </body>
+</html>
