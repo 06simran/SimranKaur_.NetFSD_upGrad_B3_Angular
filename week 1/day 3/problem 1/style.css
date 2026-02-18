@@ -1,0 +1,95 @@
+body
+{
+    font-family : Arial, Helvetica, sans-serif;
+}
+
+h1
+{
+    color:pink;
+    font-family: Arial;
+    text-align:center;
+}
+
+form
+{
+    border: 10px solid pink;
+    padding: 20px;
+    width: 600px;
+    margin: 100px auto;
+    background-color: beige;
+}
+
+button
+{
+    background-color: hotpink;
+    color: rgb(220, 216, 216);
+    padding: 8px 15px;
+    margin: 10px 5px;
+}
+
+.form-group
+{
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.form-group label
+{
+    width: 120px;
+}
+
+.form-group input
+{
+    width: 180px;
+}
+
+input[type="submit"],
+input[type="reset"]
+{
+    background-color: hotpink;
+    color: white;
+    padding: 8px 15px;
+    margin: 10px 5px;
+    border: none;
+    cursor: pointer;
+}
+
+footer
+{
+    text-align: center;
+    background-color: hotpink;
+    color: white;
+    padding: 15px 0;
+    margin-top: 20px;
+    
+}
+header
+{
+    text-align: center;
+    background-color: hotpink;
+    color: white;
+    padding: 15px 0;
+    margin-top: 20px;
+    text-decoration-color: white;
+
+}
+
+article
+{ 
+    text-align: center;
+    background-color: lightpink;
+    border: 1px solid lightpink;
+    border-radius: 6px;
+    padding: 10px;
+    width: calc(33% - 20px);
+    box-sizing: border-box;
+    margin: 20px auto;
+}
+
+h3
+{
+    background-color: pink ;
+    color : hotpink;
+
+}

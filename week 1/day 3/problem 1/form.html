@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Student Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+   <form action="/submit" method="POST" autocomplete="off">
+<fieldset>
+
+<legend style="color: blueviolet">
+<h1>Student Registration Form</h1>
+</legend>
+
+<section>
+
+<div class="form-group">
+<label>User Name :</label>
+<input type="text" id="uid" name="uid" placeholder="Enter name" required />
+</div>
+
+<div class="form-group">
+<label>Email id :</label>
+<input type="email" id="eid" name="eid" placeholder="Enter Email Address" required />
+</div>
+
+<div class="form-group">
+<label>Phone no. :</label>
+<input type="tel" id="ph" name="ph" pattern="[0-9]{10}" placeholder="Enter phone number" required />
+</div>
+
+<div class="form-group">
+<label>Age :</label>
+<input type="number" id="aid" name="aid" min="16" max="26" placeholder="Enter age" required />
+</div>
+
+<div class="form-group">
+<label>Date :</label>
+<input type="date" id="did" name="did" required />
+</div>
+
+</section>
+
+<footer class="button-group">
+<input type="submit" value="Register" />
+<input type="reset" value="Clear" />
+</footer>
+
+</fieldset>
+</form>
+
+</body>
+</html>

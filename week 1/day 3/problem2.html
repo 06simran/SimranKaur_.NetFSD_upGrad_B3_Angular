@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Personal Profile Card</title>
+    <style>
+        body
+        {
+            font-family: Arial;
+            background-color: beige;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 1;
+        }
+
+        .card
+        {
+            background-color: ghostwhite;
+            border: 1px solid ghostwhite;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 20px;
+            width: 320px;
+            text-align: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h2
+        {
+            margin-bottom: 5px;
+            font-size: 24px;
+            letter-spacing: 1px;
+        }
+
+        .role
+        {
+            color: plum;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .bio
+        {
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .contact-btn
+        {
+            background-color: plum;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .contact-btn:hover
+        {
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>Simran Kaur</h2>
+        <p class="role">Software Developer</p>
+        <p class="bio">
+            Passionate developer skilled in Java, Web Development, and building scalable applications.
+            Interested in creating efficient and user-friendly solutions.
+        </p>
+        <button class="contact-btn">Contact</button>
+    </div>
+
+</body>
+</html>
