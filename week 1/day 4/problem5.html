@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Number Analysis Tool</title>
+</head>
+<body>
+
+    <h2>Number Analysis Tool</h2>
+
+    Enter Number:
+    <input type="text" id="numberInput">
+    <button onclick="analyzeNumber()">Submit</button>
+
+    <p id="result"></p>
+
+    <script>
+
+        function analyzeNumber()
+        {
+            let number = document.getElementById("numberInput").value;
+
+            let result = (number >= 0) ? "Positive" : "Negative";
+            console.log("Number : ", number);
+            console.log("Positivity : ", result);
+
+            let output = "";
+            output += "Number : " + number + "<br>";
+            output += "Positivity : " + result + "<br>";
+
+            if (number % 2 == 0)
+            {
+                console.log("Parity : Even");
+                output += "Parity : Even<br>";
+            }
+            else
+            {
+                console.log("Parity : Odd");
+                output += "Parity : Odd<br>";
+            }
+
+            console.log("Numbers from 1 to", number, ":");
+            output += "Numbers from 1 to " + number + " : ";
+
+            for (let i = 1; i <= number; i++)
+            {
+                console.log(i);
+                output += i + " ";
+            }
+
+            document.getElementById("result").innerHTML = output;
+        }
+
+    </script>
+
+</body>
+</html>

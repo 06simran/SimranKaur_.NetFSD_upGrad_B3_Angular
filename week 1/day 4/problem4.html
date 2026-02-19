@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Traffic Signal Simulator</title>
+</head>
+<body>
+
+    <h2>Traffic Signal Simulator</h2>
+
+    Enter Signal:
+    <input type="text" id="signalInput">
+    <button onclick="checkSignal()">Submit</button>
+
+    <p id="result"></p>
+
+    <script>
+
+        function checkSignal()
+        {
+            let signal = document.getElementById("signalInput").value;
+
+            switch (signal)
+            {
+                case "Red":
+                    console.log("Signal:", signal);
+                    console.log("Instruction: Stop");
+
+                    document.getElementById("result").innerHTML =
+                    "Signal: " + signal + "<br>Instruction: Stop";
+                    break;
+
+                case "Yellow":
+                    console.log("Signal:", signal);
+                    console.log("Instruction: Get Ready");
+
+                    document.getElementById("result").innerHTML =
+                    "Signal: " + signal + "<br>Instruction: Get Ready";
+                    break;
+
+                case "Green":
+                    console.log("Signal:", signal);
+                    console.log("Instruction: Go");
+
+                    document.getElementById("result").innerHTML =
+                    "Signal: " + signal + "<br>Instruction: Go";
+                    break;
+
+                default:
+                    console.log("Signal:", signal);
+                    console.log("Instruction: Invalid signal");
+
+                    document.getElementById("result").innerHTML =
+                    "Signal: " + signal + "<br>Instruction: Invalid signal";
+            }
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Discount Calculator</title>
+</head>
+<body>
+
+    <h2>Online Store Discount Calculator</h2>
+
+    Enter Amount:
+    <input type="text" id="amountInput">
+    <button onclick="calculateDiscount()">Submit</button>
+
+    <p id="result"></p>
+
+    <script>
+
+        function calculateDiscount()
+        {
+            let amount = document.getElementById("amountInput").value;
+            let discount = 0;
+            let finalAmount;
+
+            if (amount <= 0 || amount == "")
+            {
+                document.getElementById("result").innerHTML =
+                "Invalid amount. Please enter a value greater than 0";
+
+                console.log("Invalid amount entered");
+            }
+            else
+            {
+                if (amount >= 5000)
+                {
+                    discount = amount * 0.20;
+                }
+                else if (amount >= 3000)
+                {
+                    discount = amount * 0.10;
+                }
+                else
+                {
+                    discount = 0;
+                }
+
+                finalAmount = amount - discount;
+
+                document.getElementById("result").innerHTML =
+                "Original Amount: Rs " + amount + "<br>" +
+                "Discount: Rs " + discount + "<br>" +
+                "Final Payable Amount: Rs " + finalAmount;
+
+                console.log("Original Amount:", amount);
+                console.log("Discount:", discount);
+                console.log("Final Payable Amount:", finalAmount);
+            }
+        }
+
+    </script>
+
+</body>
+</html>

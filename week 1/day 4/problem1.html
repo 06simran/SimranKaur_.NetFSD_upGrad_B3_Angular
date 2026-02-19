@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my webpage</title>
+
+    <style>
+
+        body
+        {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: linear-gradient(to right, #f8edeb, #e8f0fe);
+            transition: all 0.3s ease;
+        }
+
+        .navbar
+        {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #b8c0ff;
+            padding: 15px 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .logo
+        {
+            color: #4a4e69;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .nav-links
+        {
+            display: flex;
+        }
+
+        .nav-links a
+        {
+            color: #4a4e69;
+            text-decoration: none;
+            padding: 10px 18px;
+            margin: 0 5px;
+            border-radius: 8px;
+            background-color: #e0e7ff;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover
+        {
+            background-color: #cdb4db;
+            color: white;
+        }
+
+        main
+        {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        h1
+        {
+            font-size: 40px;
+            color: #6d6875;
+        }
+
+        p
+        {
+            font-size: 20px;
+            color: #6c757d;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .card
+        {
+            background: #ffffff;
+            margin: 40px auto;
+            padding: 30px;
+            max-width: 500px;
+            border-radius: 14px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            background-color: #f1f7ed;
+        }
+
+        .card h2
+        {
+            color: #588157;
+        }
+
+        .card p
+        {
+            font-size: 18px;
+        }
+
+        @media (max-width: 768px)
+        {
+            body
+            {
+                background: linear-gradient(to right, #d8e2dc, #e0bbff);
+            }
+
+            .navbar
+            {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-links
+            {
+                flex-direction: column;
+                width: 100%;
+                margin-top: 10px;
+            }
+
+            .nav-links a
+            {
+                margin: 6px 0;
+            }
+
+            h1
+            {
+                font-size: 28px;
+            }
+
+            p
+            {
+                font-size: 16px;
+            }
+
+            .card
+            {
+                margin: 20px;
+                padding: 20px;
+            }
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">MyWebPage</div>
+
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </div>
+
+    </nav>
+
+    <main>
+
+        <h1>Welcome to My Website</h1>
+
+        <p>
+            this is my webpage.
+        </p>
+
+        <div class="card">
+            <h2>User Name</h2>
+            <p>
+                short description.
+            </p>
+        </div>
+
+    </main>
+
+</body>
+</html>
