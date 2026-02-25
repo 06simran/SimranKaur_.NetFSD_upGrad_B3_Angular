@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Cart Summary</title>
+</head>
+<body>
+
+<h2>Product Cart Summary</h2>
+
+Product Name: <input type="text" id="name" autocomplete="off"><br><br>
+Price: <input type="number" id="price" autocomplete="off"><br><br>
+Quantity: <input type="number" id="quantity" autocomplete="off"><br><br>
+
+<button onclick="addProduct()">Add Product</button>
+<button onclick="generateInvoice()">Generate Invoice</button>
+
+<pre id="output"></pre>
+
+<script>
+
+const cart = [];
+
+const addProduct = () => {
+
+    const name = document.getElementById("name").value.trim();
+
+    const price = Number(document.getElementById("price").value);
+
+    const quantity = Number(document.getElementById("quantity").value);
+
+    if (!name || isNaN(price) || isNaN(quantity)) return;
+
+    const exists = cart.find(item => item.name.toLowerCase() === name.toLowerCase());
+
+    if (!exists)
+    cart.push({ name, price, quantity });
+
+};
+
+const calculateItemTotal = (item) => item.price * item.quantity;
+
+const calculateCartTotal = (cartItems) =>
+    cartItems.reduce((total, item) => total + calculateItemTotal(item), 0);
+
+const generateInvoice = () => {
+
+    const lines = cart.map(item =>
+        `${item.name} - ₹${item.price} x ${item.quantity} = ₹${calculateItemTotal(item)}`
+    );
+
+    const total = calculateCartTotal(cart);
+
+    document.getElementById("output").textContent =
+`Invoice:
+${lines.join("\n")}
+
+Total Cart Value: ₹${total}`;
+
+};
+
+</script>
+
+</body>
+</html>

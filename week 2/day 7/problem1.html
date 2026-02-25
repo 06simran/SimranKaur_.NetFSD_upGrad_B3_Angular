@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Marks Analyzer</title>
+</head>
+<body>
+
+<h2>Student Marks Analyzer</h2>
+
+Enter marks :  
+<input type="text" id="marksInput">
+<button onclick="analyzeMarks()">Analyze</button>
+
+<pre id="output"></pre>
+
+<script>
+
+const calculateTotal = (arr) => arr.reduce((sum, mark) => sum + mark, 0);
+
+const calculateAverage = (arr) => arr.length ? calculateTotal(arr) / arr.length : 0;
+
+const getResult = (avg) => avg >= 50 ? "Pass" : "Fail";
+
+const analyzeMarks = () => {
+
+    const input = document.getElementById("marksInput").value;
+
+    const marks = [...new Set(
+        input.split(",")
+             .map(x => Number(x.trim()))
+             .filter(x => !isNaN(x))
+    )];
+
+    const total = calculateTotal(marks);
+
+    const average = calculateAverage(marks);
+
+    const result = getResult(average);
+
+    document.getElementById("output").textContent =
+`Unique Marks: ${marks.join(", ")}
+Total: ${total}
+Average: ${average.toFixed(2)}
+Result: ${result}`;
+
+};
+
+</script>
+
+</body>
+</html>
