@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>To-Do List</title>
+
+<style>
+
+body{
+font-family:Verdana;
+background:linear-gradient(to right,#dfe9f3,#ffffff);
+}
+
+.wrapper{
+width:350px;
+margin:40px auto;
+padding:20px;
+background:white;
+border-radius:12px;
+box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+
+input{
+width:65%;
+padding:8px;
+}
+
+button{
+padding:8px;
+margin-left:5px;
+cursor:pointer;
+}
+
+li{
+margin-top:10px;
+padding:8px;
+background:#f1f1f1;
+border-radius:5px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.finished{
+background:#d4edda;
+text-decoration:line-through;
+}
+
+.actionBtn{
+background:#007bff;
+color:white;
+border:none;
+padding:5px 8px;
+}
+
+.removeBtn{
+background:#dc3545;
+color:white;
+border:none;
+padding:5px 8px;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="wrapper">
+
+<h2>Daily Planner</h2>
+
+<input type="text" id="taskField" placeholder="Enter new task">
+
+<button id="insertBtn">Insert</button>
+
+<ul id="taskContainer"></ul>
+
+</div>
+
+
+<script>
+
+
+const field = document.getElementById("taskField");
+const insertBtn = document.getElementById("insertBtn");
+const container = document.getElementById("taskContainer");
+
+
+
+function generateID(){
+return Date.now();
+}
+
+
+
+function buildTask(taskText){
+
+const li = document.createElement("li");
+
+li.dataset.id = generateID();
+console.log(li.dataset.id);
+const text = document.createElement("span");
+text.textContent = taskText;
+
+
+const complete = document.createElement("button");
+complete.textContent = "Done";
+complete.className = "actionBtn";
+
+
+const remove = document.createElement("button");
+remove.textContent = "Remove";
+remove.className = "removeBtn";
+
+
+li.append(text);
+li.append(complete);
+li.append(remove);
+
+return li;
+
+}
+
+
+
+insertBtn.addEventListener("click", function(){
+
+const value = field.value.trim();
+
+if(value.length === 0) return;
+
+const taskElement = buildTask(value);
+
+container.appendChild(taskElement);
+
+field.value = "";
+
+});
+
+
+
+container.addEventListener("click", function(event){
+
+const clicked = event.target;
+
+const parentTask = clicked.parentElement;
+
+
+
+if(clicked.classList.contains("removeBtn")){
+
+parentTask.remove();
+
+}
+
+
+
+if(clicked.classList.contains("actionBtn")){
+
+parentTask.classList.toggle("finished");
+
+}
+
+});
+
+</script>
+
+</body>
+</html>
