@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Student</title>
+    </head>
+    <body>
+        <h3>Student Details</h3>
+        Name : <input type="text" id="name" required autocomplete="off">
+        <br><br>
+        Roll no : <input type="number" min="1" max="50" id="rollno" required autocomplete="off">
+        <br><br>
+        Marks : <input type="number" min="1" max="100" id="marks" required autocomplete="off">
+        <br><br>
+
+        <button onclick="addstudent()">Add Student</button>
+        <div id="output"></div>
+        <script>
+            class Student
+            {
+             constructor(name, rollnumber, marks)
+             {
+                this.name = name;
+                this.rollnumber = rollnumber;
+                this.marks = marks;
+             }
+             
+             getDetails()
+             {
+                return `
+                Name : ${this.name}<br>
+                Roll no : ${this.rollnumber}<br>
+                Marks : ${this.marks}<br>
+                Grade : ${this.getGrade()}<br><br>
+                `;
+             }
+
+             getGrade()
+             {
+                if (this.marks >= 90)
+             {
+                return "A";
+             }
+              else if (this.marks >= 75)
+             {
+                return "B";
+             }
+              else if (this.marks >= 50)
+             {
+                return "C";
+             }
+             else
+             {
+                return "FAIL";
+             }
+             }
+            }
+            function addstudent()
+            {
+                let name = document.getElementById("name").value;
+                let rollno = document.getElementById("rollno").value;
+                let marks = document.getElementById("marks").value;
+
+                let student = new Student(name, rollno, Number(marks));
+
+                document.getElementById("output").innerHTML += student.getDetails();
+
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Vehicle Management System</title>
+</head>
+<body>
+
+<h2>Vehicle Management System</h2>
+
+Brand : <input type="text" id="brand"><br><br>
+
+Speed : <input type="number" id="speed"><br><br>
+
+Fuel Type : <input type="text" id="fuel"><br><br>
+
+<button onclick="createCar()">Create Car</button>
+
+<div id="output"></div>
+
+<script>
+
+class Vehicle
+{
+    constructor(brand, speed)
+    {
+        this.brand = brand;
+        this.speed = speed;
+    }
+
+    displayInfo()
+    {
+        return `
+        Brand : ${this.brand} <br>
+        Speed : ${this.speed} km/h <br>
+        `;
+    }
+}
+
+class Car extends Vehicle
+{
+    constructor(brand, speed, fuelType)
+    {
+        super(brand, speed);
+        this.fuelType = fuelType;
+    }
+
+    showCarDetails()
+    {
+        return `
+        ${this.displayInfo()}
+        Fuel Type : ${this.fuelType} <br><br>
+        `;
+    }
+}
+
+function createCar()
+{
+    let brand = document.getElementById("brand").value;
+    let speed = document.getElementById("speed").value;
+    let fuel = document.getElementById("fuel").value;
+
+    let car1 = new Car(brand, speed, fuel);
+
+    document.getElementById("output").innerHTML = car1.showCarDetails();
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Payment System</title>
+</head>
+<body>
+
+<h2>Payment System</h2>
+
+Amount:
+<input type="number" id="amount"><br><br>
+
+<button onclick="makePayment()">Pay</button>
+
+<div id="output"></div>
+
+<script>
+
+class Payment
+{
+    pay(amount)
+    {
+        return "Processing payment of ₹" + amount;
+    }
+}
+
+class CreditCardPayment extends Payment
+{
+    pay(amount)
+    {
+        return "Paid ₹" + amount + " using Credit Card";
+    }
+}
+
+class UPIPayment extends Payment
+{
+    pay(amount)
+    {
+        return "Paid ₹" + amount + " using UPI";
+    }
+}
+
+class CashPayment extends Payment
+{
+    pay(amount)
+    {
+        return "Paid ₹" + amount + " using Cash";
+    }
+}
+
+function makePayment()
+{
+    let amount = document.getElementById("amount").value;
+
+    let credit = new CreditCardPayment();
+    let upi = new UPIPayment();
+    let cash = new CashPayment();
+
+    let result = "";
+    result += credit.pay(amount) + "<br>";
+    result += upi.pay(amount) + "<br>";
+    result += cash.pay(amount) + "<br>";
+
+    document.getElementById("output").innerHTML = result;
+}
+
+</script>
+
+</body>
+</html>
