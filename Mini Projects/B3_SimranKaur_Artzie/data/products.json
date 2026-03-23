@@ -1,0 +1,48 @@
+[
+{"id":1,"name":"Abstract Painting","category":"Paintings","price":3500,"description":"A modern abstract artwork that adds elegance and creativity to any space.","image":"images/painting1.jpg"},
+
+{"id":2,"name":"Crochet Bag","category":"Crochet","price":1200,"description":"Handmade crochet bag crafted with soft yarn, perfect for daily use.","image":"images/crochetbag.jpg"},
+
+{"id":3,"name":"Resin Keychain","category":"Resin","price":300,"description":"Stylish resin keychain with a glossy finish and artistic design.","image":"images/resin.jpg"},
+
+{"id":4,"name":"Handmade Earrings","category":"Jewelry","price":450,"description":"Elegant handcrafted earrings designed for both casual and festive wear.","image":"images/earrings.jpg"},
+
+{"id":5,"name":"Decor Candle","category":"Decor","price":600,"description":"Scented pastel candle that creates a warm and relaxing atmosphere.","image":"images/candle.jpg"},
+
+{"id":6,"name":"Art Journal","category":"Stationery","price":750,"description":"Creative journal perfect for sketching, writing, and artistic expression.","image":"images/journal.jpg"},
+
+
+{"id":7,"name":"Landscape Painting","category":"Paintings","price":4200,"description":"Beautiful landscape painting inspired by nature and scenic views.","image":"images/painting2.jpg"},
+
+{"id":8,"name":"Modern Wall Art","category":"Paintings","price":2800,"description":"Contemporary wall art designed to enhance modern home interiors.","image":"images/painting3.jpg"},
+
+
+{"id":9,"name":"Crochet Flowers","category":"Crochet","price":600,"description":"Handmade crochet flowers perfect for decoration and gifting.","image":"images/crochet1.jpg"},
+
+{"id":10,"name":"Crochet Coasters","category":"Crochet","price":400,"description":"Set of soft crochet coasters ideal for protecting surfaces stylishly.","image":"images/crochet2.jpg"},
+
+
+{"id":11,"name":"Resin Jewelry Set","category":"Resin","price":900,"description":"Elegant resin jewelry set with a glossy artistic finish.","image":"images/resin1.jpg"},
+
+{"id":12,"name":"Resin Tray","category":"Resin","price":1500,"description":"Handcrafted resin tray perfect for serving or home decor.","image":"images/resin2.jpg"},
+
+
+{"id":13,"name":"Beaded Necklace","category":"Jewelry","price":800,"description":"Beautiful beaded necklace designed to add charm to any outfit.","image":"images/jewelry1.jpg"},
+
+{"id":14,"name":"Bracelet Set","category":"Jewelry","price":500,"description":"Trendy bracelet set suitable for everyday and festive styling.","image":"images/jewelry2.jpg"},
+
+
+{"id":15,"name":"Lavender Scented Candle","category":"Decor","price":650,"description":"Relaxing lavender scented candle for a calm and soothing ambiance.","image":"images/candle1.jpg"},
+
+{"id":16,"name":"Vanilla Aroma Candle","category":"Decor","price":700,"description":"Sweet vanilla scented candle that creates a cozy environment.","image":"images/candle2.jpg"},
+
+
+{"id":17,"name":"Wall Hanging Decor","category":"Decor","price":1100,"description":"Artistic wall hanging that enhances the beauty of your living space.","image":"images/decor1.jpg"},
+
+{"id":18,"name":"Clay Pot Decor","category":"Decor","price":750,"description":"Handcrafted clay pot decor piece with a traditional artistic touch.","image":"images/decor2.jpg"},
+
+
+{"id":19,"name":"Calligraphy Cards","category":"Stationery","price":300,"description":"Elegant calligraphy cards perfect for gifting and special occasions.","image":"images/stationery1.jpg"},
+
+{"id":20,"name":"Bookmarks Set","category":"Stationery","price":250,"description":"Creative bookmarks set designed for book lovers and readers.","image":"images/stationery2.jpg"}
+]

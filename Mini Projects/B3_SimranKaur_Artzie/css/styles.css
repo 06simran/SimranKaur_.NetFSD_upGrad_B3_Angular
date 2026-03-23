@@ -1,0 +1,176 @@
+/* GENERAL */
+body{
+    background:#FFF9F8;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    color:#5A4A42;
+}
+
+/* NAVBAR */
+.navbar{
+    background:#FFD6E0; /* soft pink */
+    border-radius:0 0 20px 20px;
+}
+
+.navbar-brand{
+    font-weight:bold;
+    font-size:22px;
+    color:#5A4A42;
+}
+
+.nav-link{
+    color:#5A4A42 !important;
+}
+
+/* CARDS */
+.card{
+    border:none;
+    border-radius:20px;
+    box-shadow:0 8px 16px rgba(0,0,0,0.08);
+    transition:0.3s;
+    background:#FFFFFF;
+    padding:10px;
+}
+
+.card:hover{
+    transform:translateY(-8px) scale(1.02);
+}
+
+/* IMAGES */
+.card img{
+    height:200px;
+    object-fit:cover;
+    border-radius:15px;
+    margin-bottom:10px;
+}
+
+/*  BUTTON BASE */
+.btn{
+    border-radius:30px;
+    padding:8px 16px;
+    font-weight:500;
+    border:none;
+    transition:0.25s;
+}
+
+/* ADD TO CART (PEACH PINK) */
+.btn-primary{
+    background:#FFB7C5 !important;
+    color:#4A3F35;
+}
+
+/*  VIEW DETAILS (BABY BLUE) */
+.btn-info{
+    background:#B5E3FF !important;
+    color:#4A3F35;
+}
+
+/*  CHECKOUT */
+.btn-success{
+    background:#dce8a3 !important;
+    color:#4A3F35;
+}
+
+/*  REMOVE */
+.btn-danger{
+    background:#FF9AA2 !important;
+    color:#4A3F35;
+}
+
+/*  BUTTON HOVER */
+.btn:hover{
+    transform:scale(1.07);
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+/*  HEADINGS */
+h1,h2,h3,h4{
+    color:#4A3F35;
+    font-weight:600;
+}
+
+/*  HERO */
+.hero{
+    background:#FFEAF4;
+    padding:40px;
+    border-radius:25px;
+    text-align:center;
+    margin-bottom:25px;
+    box-shadow:0 6px 12px rgba(0,0,0,0.05);
+}
+
+/* PRODUCT DETAILS */
+#productDetails img{
+    width:100%;
+    max-width:400px;
+    border-radius:20px;
+    margin-bottom:15px;
+}
+
+/*  CART CARDS */
+#cartItems .card{
+    background:#FFF;
+}
+
+/* FORM */
+input, textarea{
+    border-radius:15px !important;
+    border:1px solid #F0DADA !important;
+    padding:10px;
+}
+
+/* BADGE (CART COUNT) */
+.badge{
+    background:#FF8FAB !important;
+    color:white;
+    padding:5px 8px;
+    border-radius:10px;
+}
+
+/*FOOTER */
+footer{
+    margin-top:40px;
+    padding:20px;
+    text-align:center;
+    background:#FFD6E0;
+    border-radius:20px 20px 0 0;
+    color:#5A4A42;
+}
+
+
+.breadcrumb{
+background:#FFEAF4;
+padding:10px 15px;
+border-radius:15px;
+}
+
+/* 🌸 BREADCRUMB FIX */
+.breadcrumb{
+    background:#FFEAF4;
+    padding:10px 15px;
+    border-radius:15px;
+    list-style:none;   /* 🔥 removes numbers */
+}
+
+/* REMOVE DEFAULT NUMBERING */
+ol.breadcrumb{
+    list-style:none !important;
+}
+
+/* SEPARATOR */
+.breadcrumb-item + .breadcrumb-item::before{
+    content:"›";
+    color:#999;
+    padding:0 8px;
+}
+
+/* LINKS */
+.breadcrumb a{
+    text-decoration:none;
+    color:#5A4A42;
+    font-weight:500;
+}
+
+/* ACTIVE ITEM */
+.breadcrumb-item.active{
+    color:#999;
+}
