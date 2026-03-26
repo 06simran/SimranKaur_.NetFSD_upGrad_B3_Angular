@@ -1,0 +1,41 @@
+@model List<WebApplication1.Models.Product>
+
+<h1>Product List</h1>
+
+<style>
+    table {
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 12px;
+        border: 1px solid black;
+    }
+</style>
+
+<table>
+    <thead>
+        <tr>
+            <th>Product No</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var prd in Model)
+        {
+            <tr>
+                <td>@prd.productId</td>
+                <td>@prd.Pname</td>
+                <td>@prd.Category</td>
+                <td>@prd.Price</td>
+                <td>
+                    <a href="/Product/Details/@prd.productId">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,17 @@
+@model WebApplication1.Models.Product
+
+<h1>Product Details</h1>
+
+@if (Model != null)
+{
+    <div>
+        <p><strong>Product Id:</strong> @Model.productId</p>
+        <p><strong>Name:</strong> @Model.Pname</p>
+        <p><strong>Category:</strong> @Model.Category</p>
+        <p><strong>Price:</strong> @Model.Price</p>
+    </div>
+}
+else
+{
+    <p>Product not found</p>
+}
