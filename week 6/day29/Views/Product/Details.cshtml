@@ -1,0 +1,13 @@
+@model WebApplication3.Models.Product
+
+<h2>Product Details</h2>
+
+<p>ID: @Model.ProductId</p>
+<p>Name: @Model.ProductName</p>
+<p>Price: @Model.Price</p>
+<p>Category: @Model.Category</p>
+
+<a asp-action="Index">Back</a>
+<a asp-controller="Product" asp-action="ShowProducts" class="btn btn-success">
+    Show Products
+</a>
