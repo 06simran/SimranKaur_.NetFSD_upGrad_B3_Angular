@@ -1,0 +1,39 @@
+@model List<WebApplication4.Models.ContactInfo>
+
+<h2>All Contacts</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Company</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Designation</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+@foreach (var item in Model)
+{
+        <tr>
+            <td>@item.ContactId</td>
+            <td>@item.FirstName @item.LastName</td>
+            <td>@item.CompanyName</td>
+            <td>@item.EmailId</td>
+            <td>@item.MobileNo</td>
+            <td>@item.Designation</td>
+            <td>
+                <a asp-action="Search" asp-route-id="@item.ContactId">
+                    View
+                </a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<a asp-action="AddContact" class="btn btn-primary">Add New Contact</a>
+<a asp-action="Search" class="btn btn-primary">Search Contact</a>
