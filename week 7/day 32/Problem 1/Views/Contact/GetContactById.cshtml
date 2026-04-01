@@ -1,0 +1,48 @@
+@model WebApplication20.Models.ContactInfo
+
+@{
+    ViewData["Title"] = "Search Contact";
+}
+
+<h2 class="mb-4">Search Contact by ID</h2>
+
+
+<div class="card mb-4" style="max-width: 400px;">
+    <div class="card-body">
+        <form method="get" action="/Contact/GetContactById">
+            <div class="mb-3">
+                <label class="form-label">Enter Contact ID</label>
+                <input type="number" name="id" class="form-control" 
+                       placeholder="e.g. 101" required />
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+            <a href="/Contact/ShowContacts" class="btn btn-secondary ms-2">Back</a>
+        </form>
+    </div>
+</div>
+
+
+@if (Model != null)
+{
+    <div class="card" style="max-width: 500px;">
+        <div class="card-header bg-success text-white">Contact Found</div>
+        <div class="card-body">
+            <table class="table table-borderless">
+                <tr><th>Contact ID</th><td>@Model.ContactId</td></tr>
+                <tr><th>First Name</th><td>@Model.FirstName</td></tr>
+                <tr><th>Last Name</th><td>@Model.LastName</td></tr>
+                <tr><th>Company</th><td>@Model.CompanyName</td></tr>
+                <tr><th>Email</th><td>@Model.EmailId</td></tr>
+                <tr><th>Mobile No</th><td>@Model.MobileNo</td></tr>
+                <tr><th>Designation</th><td>@Model.Designation</td></tr>
+            </table>
+        </div>
+    </div>
+}
+else if (Context.Request.Query.ContainsKey("id"))
+{
+   
+    <div class="alert alert-danger" style="max-width: 400px;">
+        No contact found with that ID.
+    </div>
+}

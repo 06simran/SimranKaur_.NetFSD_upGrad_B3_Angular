@@ -1,0 +1,64 @@
+@model WebApplication20.Models.ContactInfo
+
+@{
+    ViewData["Title"] = "Add Contact";
+}
+
+<h2 class="mb-4">Add New Contact</h2>
+
+<div class="card" style="max-width: 600px;">
+    <div class="card-body">
+        <form method="post" action="/Contact/AddContact">
+
+            <div class="mb-3">
+                <label class="form-label">Contact ID</label>
+                <input type="number" name="ContactId" class="form-control" 
+                       value="@Model?.ContactId" />
+                @Html.ValidationMessageFor(m => m.ContactId, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">First Name</label>
+                <input type="text" name="FirstName" class="form-control" 
+                       value="@Model?.FirstName" />
+                @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Last Name</label>
+                <input type="text" name="LastName" class="form-control" 
+                       value="@Model?.LastName" />
+                @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Company Name</label>
+                <input type="text" name="CompanyName" class="form-control" 
+                       value="@Model?.CompanyName" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Email ID</label>
+                <input type="email" name="EmailId" class="form-control" 
+                       value="@Model?.EmailId" />
+                @Html.ValidationMessageFor(m => m.EmailId, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Mobile No</label>
+                <input type="text" name="MobileNo" class="form-control" 
+                       value="@Model?.MobileNo" maxlength="10" />
+                @Html.ValidationMessageFor(m => m.MobileNo, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Designation</label>
+                <input type="text" name="Designation" class="form-control" 
+                       value="@Model?.Designation" />
+            </div>
+
+            <button type="submit" class="btn btn-success">Save Contact</button>
+            <a href="/Contact/ShowContacts" class="btn btn-secondary ms-2">Cancel</a>
+        </form>
+    </div>
+</div>
