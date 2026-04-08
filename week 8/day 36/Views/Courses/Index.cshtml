@@ -1,0 +1,63 @@
+@model IEnumerable<Course>
+@{
+    ViewData["Title"] = "Courses";
+}
+
+<div class="page-header">
+    <div>
+        <h1>📚 Courses</h1>
+        <p class="subtitle">All courses with enrolled students</p>
+    </div>
+    <a asp-action="Create" class="btn btn-primary">+ Add Course</a>
+</div>
+
+<div class="courses-grid">
+    @foreach (var course in Model)
+    {
+        <div class="course-card">
+            <div class="course-card-header">
+                <h3>@course.CourseName</h3>
+                <span class="badge">ID: @course.CourseId</span>
+            </div>
+            <div class="student-count">
+                👨‍🎓 @course.Students.Count student@(course.Students.Count != 1 ? "s" : "") enrolled
+            </div>
+            <ul class="student-list">
+                @foreach (var student in course.Students)
+                {
+                    <li>
+                        <a asp-controller="Students" asp-action="Details" asp-route-id="@student.StudentId">
+                            @student.StudentName
+                        </a>
+                    </li>
+                }
+                @if (!course.Students.Any())
+                {
+                    <li class="empty">No students enrolled yet</li>
+                }
+            </ul>
+            <div class="card-actions">
+                <a asp-action="Details" asp-route-id="@course.CourseId" class="btn btn-sm btn-outline">Details</a>
+                <form asp-action="Delete" method="post" style="display:inline">
+                    <input type="hidden" name="id" value="@course.CourseId" />
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="btn btn-sm btn-danger"
+                        onclick="return confirm('Delete @course.CourseName? Students in this course will also be affected.')">Delete</button>
+                </form>
+            </div>
+        </div>
+    }
+</div>
+
+@if (!Model.Any())
+{
+    <div class="empty-state">
+        <p>No courses found. <a asp-action="Create">Add the first course</a>.</p>
+    </div>
+}
+
+<div class="dapper-note">
+    <strong>🔍 Dapper Query Used:</strong>
+    <code>SELECT c.*, s.StudentId, s.StudentName, s.CourseId FROM Courses c LEFT JOIN Students s ON c.CourseId = s.CourseId</code>
+    — using <em>multi-map</em> with Dictionary to group students per course
+</div>

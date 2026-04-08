@@ -1,0 +1,41 @@
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="page-header">
+    <h1>📊 Dashboard</h1>
+    <p class="subtitle">Student–Course Management System</p>
+</div>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="stat-icon">👨‍🎓</div>
+        <div class="stat-number">@ViewBag.TotalStudents</div>
+        <div class="stat-label">Total Students</div>
+        <a asp-controller="Students" asp-action="Index" class="btn btn-primary">View All →</a>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon">📚</div>
+        <div class="stat-number">@ViewBag.TotalCourses</div>
+        <div class="stat-label">Total Courses</div>
+        <a asp-controller="Courses" asp-action="Index" class="btn btn-secondary">View All →</a>
+    </div>
+</div>
+
+<div class="info-section">
+    <h2>About This System</h2>
+    <div class="info-grid">
+        <div class="info-card">
+            <h3>🔗 Relationship</h3>
+            <p>One-to-Many: A <strong>Course</strong> can have many <strong>Students</strong>, but each Student belongs to exactly one Course.</p>
+        </div>
+        <div class="info-card">
+            <h3>🛠️ Technology</h3>
+            <p>Built with <strong>ASP.NET Core MVC</strong>, <strong>Dapper</strong> ORM, and <strong>SQLite</strong> for lightweight data storage.</p>
+        </div>
+        <div class="info-card">
+            <h3>🗄️ Dapper Multi-Map</h3>
+            <p>Uses Dapper's <code>Query&lt;T1, T2, T&gt;</code> with <code>splitOn</code> to hydrate navigation properties from JOIN queries.</p>
+        </div>
+    </div>
+</div>

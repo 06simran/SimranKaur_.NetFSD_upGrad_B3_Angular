@@ -1,0 +1,59 @@
+@model IEnumerable<Student>
+@{
+    ViewData["Title"] = "Students";
+}
+
+<div class="page-header">
+    <div>
+        <h1>👨‍🎓 Students</h1>
+        <p class="subtitle">All students with their enrolled courses</p>
+    </div>
+    <a asp-action="Create" class="btn btn-primary">+ Add Student</a>
+</div>
+
+<div class="table-card">
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Student Name</th>
+                <th>Enrolled Course</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var student in Model)
+            {
+                <tr>
+                    <td><span class="badge">#@student.StudentId</span></td>
+                    <td><strong>@student.StudentName</strong></td>
+                    <td>
+                        <span class="course-tag">📚 @student.Course?.CourseName</span>
+                    </td>
+                    <td class="actions">
+                        <a asp-action="Details" asp-route-id="@student.StudentId" class="btn btn-sm btn-outline">View</a>
+                        <form asp-action="Delete" method="post" style="display:inline">
+                            <input type="hidden" name="id" value="@student.StudentId" />
+                            @Html.AntiForgeryToken()
+                            <button type="submit" class="btn btn-sm btn-danger"
+                                onclick="return confirm('Delete @student.StudentName?')">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    @if (!Model.Any())
+    {
+        <div class="empty-state">
+            <p>No students found. <a asp-action="Create">Add the first student</a>.</p>
+        </div>
+    }
+</div>
+
+<div class="dapper-note">
+    <strong>🔍 Dapper Query Used:</strong>
+    <code>SELECT s.*, c.CourseId, c.CourseName FROM Students s INNER JOIN Courses c ON s.CourseId = c.CourseId</code>
+    — using <em>multi-map</em> with <code>splitOn: "CourseId"</code>
+</div>

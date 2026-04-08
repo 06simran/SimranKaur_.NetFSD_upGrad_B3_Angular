@@ -1,0 +1,62 @@
+@model Course
+@{
+    ViewData["Title"] = "Course Details";
+}
+
+<div class="page-header">
+    <h1>📚 Course Details</h1>
+    <a asp-action="Index" class="btn btn-outline">← Back to Courses</a>
+</div>
+
+<div class="detail-card">
+    <div class="detail-row">
+        <span class="detail-label">Course ID</span>
+        <span class="detail-value"><span class="badge">#@Model.CourseId</span></span>
+    </div>
+    <div class="detail-row">
+        <span class="detail-label">Course Name</span>
+        <span class="detail-value"><strong>@Model.CourseName</strong></span>
+    </div>
+    <div class="detail-row">
+        <span class="detail-label">Enrolled Students</span>
+        <span class="detail-value">@Model.Students.Count student@(Model.Students.Count != 1 ? "s" : "")</span>
+    </div>
+</div>
+
+<div class="section-title">
+    <h2>👨‍🎓 Enrolled Students</h2>
+</div>
+
+@if (Model.Students.Any())
+{
+    <div class="table-card">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Student ID</th>
+                    <th>Student Name</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var student in Model.Students)
+                {
+                    <tr>
+                        <td><span class="badge">#@student.StudentId</span></td>
+                        <td><strong>@student.StudentName</strong></td>
+                        <td>
+                            <a asp-controller="Students" asp-action="Details" asp-route-id="@student.StudentId" class="btn btn-sm btn-outline">View</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <div class="empty-state">
+        <p>No students enrolled in this course yet.</p>
+        <a asp-controller="Students" asp-action="Create" class="btn btn-primary">Enroll a Student</a>
+    </div>
+}
