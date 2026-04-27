@@ -1,0 +1,120 @@
+<div class="page-wrapper">
+  <!-- Header -->
+  <header class="app-header">
+    <div class="header-content">
+      <div class="header-icon"></div>
+      <div>
+        <h1>Contact Management</h1>
+        <p>Manage your contacts efficiently</p>
+      </div>
+    </div>
+
+    <!-- Stats bar -->
+    <div class="stats-bar">
+      <div class="stat-card">
+        <span class="stat-number">{{ contacts.length }}</span>
+        <span class="stat-label">Total</span>
+      </div>
+      <div class="stat-card active-stat">
+        <span class="stat-number">{{ activeCount }}</span>
+        <span class="stat-label">Active</span>
+      </div>
+      <div class="stat-card inactive-stat">
+        <span class="stat-number">{{ inactiveCount }}</span>
+        <span class="stat-label">Inactive</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Search bar — Two-Way Binding [(ngModel)] -->
+  <div class="search-section">
+    <div class="search-wrapper">
+      <span class="search-icon"></span>
+      <input
+        type="text"
+        [(ngModel)]="searchTerm"
+        placeholder="Search by name or email..."
+        class="search-input"
+      />
+      <button *ngIf="searchTerm" class="clear-btn" (click)="searchTerm = ''">✕</button>
+    </div>
+    <p class="search-hint" *ngIf="searchTerm">
+      Showing results for: <strong>"{{ searchTerm }}"</strong>
+    </p>
+  </div>
+
+  <!-- Contact Table -->
+  <div class="table-container">
+    <table class="contact-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let contact of contacts | searchFilter: searchTerm | slice: 0 : displayLimit; let i = index"
+          [class.row-active]="contact.isActive"
+          [class.row-inactive]="!contact.isActive"
+        >
+          <td class="index-cell">{{ i + 1 }}</td>
+
+          <td class="name-cell">
+            <div class="avatar" [style.background]="contact.isActive ? 'var(--active-color)' : 'var(--inactive-color)'">
+              {{ (contact.name | titlecase).charAt(0) }}
+            </div>
+            {{ contact.name | titlecase }}
+          </td>
+
+          <td class="email-cell">{{ contact.email | lowercase }}</td>
+
+          <td class="phone-cell">{{ contact.phone | phoneFormatter }}</td>
+
+          <td>
+            <span
+              class="status-badge"
+              [class.badge-active]="contact.isActive"
+              [class.badge-inactive]="!contact.isActive"
+            >
+              {{ contact.isActive | statusLabel }}
+            </span>
+          </td>
+
+          <td>
+            <button
+              class="toggle-btn"
+              [class.btn-deactivate]="contact.isActive"
+              [class.btn-activate]="!contact.isActive"
+              (click)="toggleStatus(contact)"
+            >
+              {{ contact.isActive ? ' Deactivate' : ' Activate' }}
+            </button>
+          </td>
+        </tr>
+
+        <!-- Empty state -->
+        <tr *ngIf="(contacts | searchFilter: searchTerm).length === 0">
+          <td colspan="6" class="no-results">
+            <div class="empty-state">
+              <span></span>
+              <p>No contacts found for <strong>"{{ searchTerm }}"</strong></p>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Show More / Show Less -->
+  <div class="show-more-section" *ngIf="(contacts | searchFilter: searchTerm).length > 5 && !searchTerm">
+    <button class="show-more-btn" (click)="toggleShowMore()">
+      {{ showAll ? '⬆ Show Less' : '⬇ Show More (' + (contacts.length - 5) + ' more)' }}
+    </button>
+  </div>
+
+</div>
